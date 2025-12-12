@@ -755,6 +755,147 @@ git push origin main
 
 ---
 
+### 🔧 重要調整 #1：模板封面和封底完全不動
+
+**發現時間**：Session #004 後期
+**問題**：最初我修改了模板封面（第一張）的標題和副標題
+**Leader 回饋**：「1. 不用再重作，只是下次封面也複製相同的，你的封面在下一張」
+
+**正確做法**（共 9 張）：
+1. 第一張：**模板封面** → 完全不動
+2. 第二張：**標題頁** → 標題 + 副標題 + 註記（替換 AI 圖片背景）
+3-8. 內容頁 1-6
+9. 最後一張：**模板封底** → 完全不動
+
+**重要性**：
+- 模板封面和封底是固定的品牌識別元素
+- 保持每篇貼文的視覺一致性
+- 第二張標題頁才是客製化的部分
+
+**已記錄到**：
+- `IMPORTANT-NOTES.md` - 重要提醒文件
+- `scripts/generate_ppt.py` - 已更新（未來版本會修正）
+- `shared/writing-style.md` - 寫作指引
+
+---
+
+### 🔧 重要調整 #2：每篇 IG 貼文都要寫「後話」
+
+**發現時間**：Session #004 後期
+**Leader 提供範例**：
+
+```
+後話
+
+其實這篇已經存在電腦裡面很久了，一直沒有時間跟大家分享。
+
+一開始養成這個習慣是看到老師跟學長說：「你沒有說名字，我怎麼知道你是誰？」後來自己當了學長也開始觀察到這個現象。
+
+對我來說，具名不只是禮貌，更是代表我願意為我的言行負責任，也是我們在醫院建立個人名聲的方式。
+
+有學弟妹說，覺得自己是誰沒有人在乎，但你自己都不在乎了，誰會在乎！
+
+下次打電話時，試試看介紹你自己，或許會有意想不到的收穫！
+```
+
+**後話結構**：
+1. 【背景故事/創作緣起】這篇文章的由來
+2. 【個人經驗/觀察起源】自己的經驗或觀察
+3. 【深化主題/個人觀點】進一步的思考
+4. 【回應常見疑慮】學弟妹或讀者的疑問
+5. 【正向鼓勵結尾】具體建議 + 鼓勵行動
+
+**為什麼重要**：
+- **個人化**：讓讀者看到真實的你
+- **深化主題**：提供更多背景與思考
+- **建立連結**：分享個人經驗增加親切感
+- **實際建議**：給出具體可行的行動
+
+**已記錄到**：
+- `shared/writing-style.md` - 後話完整結構與範例
+- `agents/ig-agents/ig-copywriting-agent.md` - Agent 提示更新
+- `IMPORTANT-NOTES.md` - 檢查清單
+
+**Leader 指示**：「2. 下次IG貼文也試著寫寫後話」
+
+---
+
+### 🔧 重要調整 #3：IG Caption 要極簡短
+
+**發現時間**：Session #004 最後階段
+**問題**：最初我寫了 300-500 字的 Caption，包含完整解釋和後話
+**Leader 回饋**：「CAPTION你沒有記憶到，通常是簡短的幾句話，不會超過一段」
+
+**錯誤示範**（太長）：
+```
+最近接到學弟妹的會診電話，越來越常聽到這樣的開場：「喂，我是某某樓層的值班醫師...」
+
+不是張醫師、不是李醫師，只是「值班醫師」。
+
+什麼時候開始，我們連名字都不說了？也許是工作壓力讓我們麻木了...（後面還有好幾段）
+```
+
+**正確示範**（簡短）：
+```
+最近接到學弟妹的會診電話，越來越常聽到這樣的開場...
+```
+
+**IG Caption 特色**：
+- **極簡短**：通常只有幾句話，不超過一段
+- **不說明投影片內容**：投影片已經說明了，Caption 不重複
+- **情境式或問句式**：引發思考或共鳴
+- **留白**：不把話說滿，讓投影片說話
+
+**注意**：後話內容適合寫在 Blog 文章中，而非 IG Caption
+
+**已修正**：
+- `shared/writing-style.md` - 加入 IG Caption 風格說明
+- `scripts/generate_content_file.py` - 使用簡短 Caption
+- `agents/ig-agents/ig-copywriting-agent.md` - 更新 Agent 提示
+- 已重新生成內容檔案
+
+---
+
+### 📚 額外產出：完整 Blog 文章
+
+**Leader 詢問**：「這篇可以寫成文章嗎」
+**選擇**：A（立即撰寫）
+
+**產出**：
+- 檔案：`outputs/文章/2025-12-12-文章-沒有姓名的值班機器/沒有姓名的值班機器.md`
+- 字數：約 2,800 字
+- 結構：
+  - 引言
+  - 現象觀察（這不是個案）
+  - 原因分析（個人/系統/社會三層面）
+  - 影響探討（對個人/團隊/病人）
+  - 反思與出路（具名的意義、我們可以怎麼做）
+  - 結語（在體制中，不失去自己）
+  - 後記（個人經驗分享）
+
+**內容再利用成功**：
+- IG 貼文：簡短、視覺化、引發共鳴
+- Blog 文章：深度、完整論述、提供脈絡
+
+---
+
+### Git Commit #2
+```bash
+git commit -m "fix: Correct IG Caption style to be concise (1-2 sentences)
+
+Major changes:
+- Updated shared/writing-style.md to document IG Caption should be extremely short
+- Added clear examples of correct vs incorrect Caption length
+- Simplified Caption in generate_content_file.py to single sentence
+- Regenerated content file with corrected Caption
+- Created full blog article (2,800 words) expanding on IG post
+
+Key learning: IG Captions are 1-2 sentences only, slides tell the story"
+git push origin main
+```
+
+---
+
 ---
 
 ## 📊 專案整體進度追蹤
