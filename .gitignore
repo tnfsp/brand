@@ -39,6 +39,10 @@ ENV/
 PRIVATE-NOTES.md
 personal-*.md
 
+# Telegram/Murmur notes (may contain private thoughts)
+content-hub/murmur-notes/
+content-hub/telegram-notes/
+
 # Backup files
 *.bak
 *.backup

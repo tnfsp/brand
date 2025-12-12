@@ -4,7 +4,9 @@
   "description": "Wilson Chao Brand Management System",
   "private": true,
   "scripts": {
-    "sync:notion-ig": "node scripts/sync-notion-ig.js"
+    "sync:notion-ig": "node scripts/sync-notion-ig.js",
+    "fetch:murmur": "node scripts/fetch-murmur-notes.js",
+    "fetch:telegram": "node scripts/fetch-telegram-notes.js"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15",
