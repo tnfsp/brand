@@ -43,6 +43,14 @@ personal-*.md
 content-hub/murmur-notes/
 content-hub/telegram-notes/
 
+# Personal inspiration vault (private ideas from notes app)
+content-hub/personal-inspiration/*.md
+!content-hub/personal-inspiration/README.md
+
+# Heptabase/Notion exports (usually large files)
+*.zip
+Heptabase-Export-*.zip
+
 # Backup files
 *.bak
 *.backup
