@@ -22,13 +22,29 @@ wilsonchao.com (自動同步發布)
 
 ### Blog Database
 - **用途**：管理所有 Blog 文章
-- **ID**：見 `.env` 文件
+- **ID**：`2c0bd17b5bf980abb1b3ee826e0fc6b1`
 - **欄位結構**：[ 待補充 - 包含哪些欄位？標題、內容、發布日期、標籤...？ ]
 
 ### Projects Database
 - **用途**：管理專案與內容規劃
-- **ID**：見 `.env` 文件
+- **ID**：`2c0bd17b5bf9808fb4fcee7f9412fd51`
 - **欄位結構**：[ 待補充 ]
+
+### IG Content Database ⭐ 新增
+- **用途**：IG 發文點子與內容庫（現有資料）
+- **連結**：https://tnfsp.notion.site/a5f5e4b12f9945b599aa1a3f4aff6454
+- **Database ID**：`a5f5e4b12f9945b599aa1a3f4aff6454`
+- **View ID**：`fd9c4cf559bd40deb613f6e603417d32`
+- **欄位結構**：[ 待讀取 - 應包含主題、內容、狀態等 ]
+- **整合方式**：讀取此 database，同步到 `content-hub/ideas-pool.md`
+
+### IG Archive Database ⭐ 新增
+- **用途**：已發布的 IG 文章存檔
+- **連結**：https://www.notion.so/tnfsp/12f4cac225e84f7bbae8c257424356e5
+- **Database ID**：`12f4cac225e84f7bbae8c257424356e5`
+- **View ID**：`ff674f99e7d44ffba86fa44c4aa03ae4`
+- **欄位結構**：[ 待讀取 ]
+- **整合方式**：讀取此 database，同步到 `content-hub/archive/`
 
 ---
 

@@ -1,0 +1,16 @@
+{
+  "name": "wilsonchao-brand",
+  "version": "1.0.0",
+  "description": "Wilson Chao Brand Management System",
+  "private": true,
+  "scripts": {
+    "sync:notion-ig": "node scripts/sync-notion-ig.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

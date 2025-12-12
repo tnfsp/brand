@@ -215,3 +215,144 @@
 
 **最後更新**：2025-12-12
 **維護者**：Content-Framing Agent（日常維護）、Social Manager（策略調整）
+
+
+---
+
+
+
+---
+
+## 從 Notion 同步的內容
+
+> 最後同步時間：2025/12/12 下午5:43:35
+> 來源：[Notion IG Content Database](https://tnfsp.notion.site/a5f5e4b12f9945b599aa1a3f4aff6454)
+
+### 未分類
+
+#### 新進住院醫師如何處理呼吸喘
+- **支柱/主題**：未分類
+- **狀態**：Backlog
+- **平台**：Instagram 📸 - 醫學
+- **建立日期**：2025/3/11
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/1b3bd17b5bf98020a959f0f7987b87a6)
+
+#### (無標題)
+- **支柱/主題**：未分類
+- **狀態**：Backlog
+- **建立日期**：2024/11/18
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/142bd17b5bf980828fb7e3d7dd20253a)
+
+### 醫院日常
+
+#### 回山的路
+- **支柱/主題**：醫院日常
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 故事
+- **建立日期**：2025/3/1
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/1a9bd17b5bf9802fb698d4003918c3f6)
+
+#### ECMO基礎教戰守則：5 分鐘搞懂關鍵參數
+- **支柱/主題**：醫院日常
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 醫學
+- **預計發布日期**：2025-03-11
+- **建立日期**：2025/3/1
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/ECMO-5-1a9bd17b5bf98019831ce5781a2f9470)
+
+#### 葉克膜(ECMO) 基礎小講
+- **支柱/主題**：醫院日常
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 醫學
+- **建立日期**：2024/11/18
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/ECMO-142bd17b5bf980caab99e8fc0a6325a4)
+
+#### 新進住院醫師-如何處理腹痛
+- **支柱/主題**：醫院日常
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 醫學
+- **建立日期**：2024/8/24
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/bba812d0908f47d2890c5e0e6948e4c6)
+
+#### 短影片：慢性靜脈功能不全（Chronic Venous Insufficiency）
+- **支柱/主題**：醫院日常
+- **狀態**：Posted
+- **建立日期**：2024/7/8
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/Chronic-Venous-Insufficiency-b14ca9fd3d1f42029e348ae4116ad59e)
+
+#### 新進住院醫師-如何處理腸胃道出血
+- **支柱/主題**：醫院日常
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 醫學
+- **預計發布日期**：2024-06-24
+- **建立日期**：2024/6/24
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/3ab731db36e54bb0864ef17b126c261e)
+
+#### 神明的孩子
+- **支柱/主題**：醫院日常
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 故事
+- **預計發布日期**：2024-05-31
+- **建立日期**：2024/5/22
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/15a3e564e8ef4edd8d882d913d219aaf)
+
+### 自我成長議題
+
+#### 別當總醫師？才當了半年，就想逃了
+- **支柱/主題**：自我成長議題
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 成長
+- **建立日期**：2025/3/1
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/1a9bd17b5bf9808abc7cc9355f9e3444)
+
+#### 我的2024回顧
+- **支柱/主題**：自我成長議題
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 故事
+- **建立日期**：2024/12/29
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/2024-16bbd17b5bf98051acddfcd23498f7ca)
+
+#### 我值得被愛嗎？
+- **支柱/主題**：自我成長議題
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 成長
+- **建立日期**：2024/12/8
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/156bd17b5bf980c69a07e4a1028d9449)
+
+#### 陪阿公在家裡畢業
+- **支柱/主題**：自我成長議題
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 故事
+- **建立日期**：2024/10/23
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/128bd17b5bf9805eb78bd676e4fedf67)
+
+#### 主治壞脾氣，是你的問題嗎？
+- **支柱/主題**：自我成長議題
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 成長
+- **建立日期**：2024/10/23
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/128bd17b5bf98042ad90ff3dbed9cb3f)
+
+#### 你想過怎麼樣的生活？
+- **支柱/主題**：自我成長議題
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 故事
+- **建立日期**：2024/8/24
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/0e93181098be416f8e1a48def12b62e2)
+
+#### 獨自旅行生存心得
+- **支柱/主題**：自我成長議題
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 成長
+- **預計發布日期**：2024-07-25
+- **建立日期**：2024/7/25
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/139dbc6b0007416c85fe3a4bd6d19bbc)
+
+#### 工具介紹：MINDKIT
+- **支柱/主題**：自我成長議題
+- **狀態**：Posted
+- **平台**：Instagram 📸 - 醫學
+- **預計發布日期**：2024-05-08
+- **建立日期**：2024/4/22
+- **Notion 連結**：[查看詳細內容](https://www.notion.so/MINDKIT-8bd427cc59894754b46e5222f5060a31)
+
