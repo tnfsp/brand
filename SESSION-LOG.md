@@ -291,6 +291,147 @@ git commit -m "Initial commit: Brand management system setup
 
 ---
 
+## Session #003 - 2025-12-12
+
+### 📌 本次目標
+建立 CLI Slash Commands 與 Notion IG 內容整合
+
+### 💬 討論內容
+
+#### 1. CLI Slash Commands 系統
+Leader 指出之前建立的 Agent prompts 無法在 CLI 中使用，需要建立 slash commands。
+
+**建立的 Slash Commands**：
+- `/social` - Social Manager（品牌策略討論）
+- `/pm` - Project Manager（任務協調）
+- `/ig` - 完整 IG 內容生產流程
+- `/ideas` - 內容點子庫管理
+- `/session` - Session Log 更新助手
+- `/overview` - 系統總覽
+
+#### 2. Notion IG 內容整合
+Leader 提供了現有的 Notion IG Content Database，包含 17 筆內容點子與已發布文章。
+
+**發現的資訊**：
+- IG Content Database：https://tnfsp.notion.site/a5f5e4b12f9945b599aa1a3f4aff6454
+- IG Archive Database：https://www.notion.so/tnfsp/12f4cac225e84f7bbae8c257424356e5
+- 欄位結構：主題名稱、發文主題、Status、Platform、Date、需要討論
+
+**分類系統**：
+- 醫院日常（8 筆）- 混合醫學知識與臨床故事
+- 自我成長議題（7 筆）- 個人成長與反思
+- 未分類（2 筆）
+
+#### 3. Notion Token 管理
+釐清了兩個不同的 Notion Integration：
+- **NOTION_WEBSITE_TOKEN**：用於 Blog 發布到 wilsonchao.com
+- **NOTION_BRAND_TOKEN**：用於讀取 Brand 的 IG 內容
+
+### ✅ 完成事項
+- [x] 建立 6 個 CLI Slash Commands（`.claude/commands/`）
+- [x] 建立 Notion IG 同步腳本（`scripts/sync-notion-ig.js`）
+- [x] 建立 Notion 結構調試腳本（`scripts/debug-notion-structure.js`）
+- [x] 設定 `package.json` 與安裝 Notion SDK
+- [x] 更新 `.env` 檔案（分離兩個 Notion tokens）
+- [x] 成功同步 17 筆 IG 內容點子到 `ideas-pool.md`
+- [x] 更新 `notion-integration.md` 文件
+- [x] Git commit & push
+
+### 📝 檔案變更記錄
+
+#### 新增檔案
+- **Slash Commands**：
+  - `.claude/commands/social.md` - Social Manager command
+  - `.claude/commands/pm.md` - Project Manager command
+  - `.claude/commands/ig.md` - IG 內容生產流程
+  - `.claude/commands/ideas.md` - 點子庫管理
+  - `.claude/commands/session.md` - Session Log 助手
+  - `.claude/commands/overview.md` - 系統總覽
+- **Scripts**：
+  - `scripts/sync-notion-ig.js` - Notion IG 內容同步腳本
+  - `scripts/debug-notion-structure.js` - Notion 結構調試腳本
+  - `package.json` - Node.js 專案設定
+- **Environment**：
+  - `.env` - Notion API credentials（不納入版本控制）
+
+#### 修改檔案
+- `resources/notion-integration.md` - 加入 IG Content 與 Archive databases 資訊
+- `content-hub/ideas-pool.md` - 同步 17 筆 Notion IG 內容
+
+### 💡 重要發現
+
+#### Leader 的內容分類系統
+與我們原本設計的「醫學/故事/個人成長」略有不同：
+- **醫院日常**：包含醫學知識 + 臨床故事（混合型）
+- **自我成長議題**：對應到「個人成長」
+
+#### 平台標記更細緻
+- Instagram 📸 - 醫學
+- Instagram 📸 - 故事
+- Instagram 📸 - 成長
+
+### ⏭️ 待辦事項
+
+#### 高優先級
+- [ ] 建立從 Archive Database 同步的腳本（學習已發布內容）
+- [ ] 補充品牌核心文件（`brand-identity.md`, `visual-guidelines.md`）
+- [ ] 測試 CLI Slash Commands 的實際使用
+
+#### 中優先級
+- [ ] 建立 `/sync` command 來快速同步 Notion 內容
+- [ ] 測試第一個 IG 內容生產流程（`/ig`）
+- [ ] 根據 Notion 內容調整 content-pillars.md 的分類定義
+
+#### 低優先級
+- [ ] 建立 Archive 內容的分析報告（哪些主題表現好？）
+- [ ] 整合 Projects Database（Daily 日記）到系統
+
+### 🎯 下次重點
+
+1. **測試 Slash Commands**：
+   - 使用 `/overview` 檢視系統
+   - 使用 `/ideas` 管理點子庫
+   - 使用 `/ig` 測試內容生產流程
+
+2. **補充品牌資訊**：
+   - 根據 Notion 現有內容，補充視覺規範細節
+   - 確認內容分類系統（醫院日常 vs 醫學/故事）
+
+3. **同步 Archive 內容**：
+   - 從已發布文章學習內容風格
+   - 分析哪些主題表現較好
+
+### 📊 系統狀態更新
+
+✅ **基礎建設：100% 完成**
+- Agent 系統架構 ✓
+- CLI Slash Commands ✓
+- Notion 整合 ✓
+- Git 版本控制 ✓
+
+🔄 **內容庫：已有 17 筆 Notion 內容**
+- 醫院日常：8 筆
+- 自我成長議題：7 筆
+- 未分類：2 筆
+
+📍 **下一階段：實際測試與生產**
+- 測試 `/ig` 生產第一個貼文
+- 根據實際運作優化系統
+
+### Git Commit
+```bash
+git commit -m "feat: Add Notion IG content sync integration
+
+- Created sync script to pull IG content ideas from Notion
+- Added debug script to inspect Notion database structure
+- Successfully synced 17 content ideas from Notion
+- Ideas pool now includes: titles, status, platforms, dates
+- Categorized into: 醫院日常, 自我成長議題
+- Separated Notion tokens: website (blog) vs brand (IG)"
+```
+
+---
+
 ---
 
 ## 📊 專案整體進度追蹤
