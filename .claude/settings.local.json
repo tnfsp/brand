@@ -13,7 +13,8 @@
       "Bash(python scripts/generate_content_file.py:*)",
       "Bash(python -c:*)",
       "Bash(ls:*)",
-      "Bash(npm run fetch:murmur:*)"
+      "Bash(npm run fetch:murmur:*)",
+      "WebFetch(domain:wilsonchao.com)"
     ]
   }
 }

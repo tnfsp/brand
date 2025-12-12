@@ -898,6 +898,40 @@ git push origin main
 
 ---
 
+## Session #006 - 2025-12-13
+
+### 📌 本次目標
+品牌策略討論（/social）：審視網站 wilsonchao.com 並優化文案
+
+### 💬 討論內容
+
+#### 1. 工作流程整理
+整理了目前系統的完整工作流程給 Leader 參考
+
+#### 2. wilsonchao.com 網站分析與修改
+
+**Home Page 修改（已完成）**：
+- 副標題：心臟外科醫師・寫字的人・學習當個自由人
+- 自我介紹：更口語化，點出「醫院故事、成長碎念、不失去自己」
+
+**About Page**：提供修改建議，Leader 自行處理
+
+**其他決策**：
+- ✅ 維持 Blog 和 Daily 分開（不合併）
+- ✅ Murmur undefined 連結問題已解決
+
+### ✅ 完成事項
+- [x] 分析 wilsonchao.com 網站
+- [x] 修改 Home Page 文案（Leader 已更新）
+- [x] 確認 Blog vs Daily 維持分開
+- [x] 確認 undefined 問題已修復
+
+### 🎯 下次重點
+- 從點子庫選擇主題製作 IG 貼文
+- 考慮發布 Blog 文章（目前只有 1 篇）
+
+---
+
 ## Session #005 - 2025-12-13
 
 ### 📌 本次目標
