@@ -90,7 +90,8 @@ wilsonchao-brand/
 ├── shared/                             # 共享文件（所有 Agents 共用）
 │   ├── brand-identity.md               # 品牌識別與價值觀
 │   ├── content-pillars.md              # 三大內容支柱定義
-│   └── visual-guidelines.md            # IG 視覺規範（三主題顏色系統）
+│   ├── visual-guidelines.md            # IG 視覺規範（三主題顏色系統）
+│   └── design-system.md                # 完整設計系統（實際規範）⭐
 │
 ├── agents/                             # Agent 系統
 │   ├── social-manager/                 # Social Manager（策略層）
@@ -111,9 +112,32 @@ wilsonchao-brand/
 │   ├── monthly-plan.md                 # 月度計畫
 │   └── archive/                        # 已發布內容記錄
 │
-└── resources/                          # 資源庫
-    ├── canva-templates.md              # Canva 模板清單
-    └── writing-frameworks.md           # 寫作框架
+├── resources/                          # 資源庫
+│   ├── notion-integration.md           # Notion API 整合說明
+│   └── ai-image-prompts.md             # AI 圖片生成指引⭐
+│
+├── assets/                             # 視覺素材⭐
+│   ├── canva-templates/                # Canva 模板（PPT格式）
+│   ├── ig-examples/                    # 已發布 IG 貼文範例
+│   ├── reference/                      # 參考素材（浮水印、大頭貼、色彩）
+│   └── fonts/                          # 字體檔案（csong）
+│
+├── scripts/                            # 腳本工具
+│   ├── sync-notion-ig.js               # Notion IG 內容同步
+│   ├── debug-notion-structure.js       # Notion 結構調試
+│   ├── generate_ppt.py                 # PPT 自動生成⭐
+│   └── generate_content_file.py        # 內容文字檔案生成⭐
+│
+└── outputs/                            # 產出檔案⭐
+    ├── README.md                       # Outputs 資料夾說明
+    ├── 文章/                           # Blog 文章產出
+    │   └── YYYY-MM-DD-文章-標題/
+    └── IG貼文/                         # Instagram 貼文產出
+        └── YYYY-MM-DD-IG貼文-類型-標題/
+            ├── [標題]_草稿.pptx        # PPT 草稿
+            ├── [標題]_內容.txt         # 文字內容
+            ├── [標題]_封面.png         # AI 封面圖
+            └── [標題]_01.png           # 完成圖片
 ```
 
 ---

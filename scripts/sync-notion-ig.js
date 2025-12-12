@@ -101,20 +101,34 @@ async function updateIdeasPool(ideas) {
     existingContent = fs.readFileSync(poolPath, 'utf-8');
   }
 
-  // 分類內容（按照 Notion 的分類）
-  const categorized = {};
+  // 分類內容（按照 Platform 的三大支柱分類）
+  const categorized = {
+    '醫學': [],
+    '故事': [],
+    '成長': [],
+    '未分類': [],
+  };
 
   ideas.forEach(idea => {
-    const category = idea.category || '未分類';
+    // 從 Platform 判斷屬於哪個支柱
+    let pillar = '未分類';
 
-    if (!categorized[category]) {
-      categorized[category] = [];
+    if (idea.platform && idea.platform.length > 0) {
+      const platformStr = idea.platform.join(' ');
+      if (platformStr.includes('醫學')) {
+        pillar = '醫學';
+      } else if (platformStr.includes('故事')) {
+        pillar = '故事';
+      } else if (platformStr.includes('成長')) {
+        pillar = '成長';
+      }
     }
 
-    categorized[category].push({
+    categorized[pillar].push({
       title: idea.title || '(無標題)',
       status: idea.status || '待使用',
       platform: idea.platform || [],
+      category: idea.category, // 保留發文主題作為次分類
       needDiscussion: idea.needDiscussion,
       date: idea.date,
       url: idea.url,
@@ -127,17 +141,22 @@ async function updateIdeasPool(ideas) {
   newSection += `> 最後同步時間：${new Date().toLocaleString('zh-TW')}\n`;
   newSection += `> 來源：[Notion IG Content Database](https://tnfsp.notion.site/a5f5e4b12f9945b599aa1a3f4aff6454)\n\n`;
 
-  for (const [category, items] of Object.entries(categorized)) {
+  for (const [pillar, items] of Object.entries(categorized)) {
     if (items.length === 0) continue;
 
-    newSection += `### ${category}\n\n`;
+    newSection += `### ${pillar}（${items.length} 筆）\n\n`;
     items.forEach(item => {
       newSection += `#### ${item.title}\n`;
-      newSection += `- **支柱/主題**：${category}\n`;
+      newSection += `- **支柱**：${pillar}\n`;
+
+      if (item.category) {
+        newSection += `- **發文主題**：${item.category}\n`;
+      }
+
       newSection += `- **狀態**：${item.status}\n`;
 
       if (item.platform && item.platform.length > 0) {
-        newSection += `- **平台**：${item.platform.join(', ')}\n`;
+        newSection += `- **平台標記**：${item.platform.join(', ')}\n`;
       }
 
       if (item.date) {

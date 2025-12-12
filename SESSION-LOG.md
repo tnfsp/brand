@@ -432,6 +432,329 @@ git commit -m "feat: Add Notion IG content sync integration
 
 ---
 
+## Session #004 - 2025-12-12
+
+### 📌 本次目標
+完成第一篇 IG 貼文「沒有姓名的值班機器」的完整產出流程，並建立標準化檔案結構
+
+### 💬 討論內容
+
+#### 1. 檔案結構重新設計
+建立了清晰的 outputs 資料夾結構：
+
+```
+outputs/
+├── 文章/                           # Blog 文章產出
+└── IG貼文/                         # Instagram 貼文產出
+    └── YYYY-MM-DD-IG貼文-類型-標題/
+        ├── [標題]_草稿.pptx        # PPT 草稿
+        ├── [標題]_內容.txt         # 文字內容
+        ├── [標題]_封面.png         # AI 封面圖
+        └── [標題]_01~08.png        # 完成圖片
+```
+
+**重要決策**：
+- 所有檔案名稱使用中文（不用英文）
+- 日期格式：YYYY-MM-DD
+- 類型固定：醫學 / 故事 / 個人成長
+
+#### 2. 浮水印精確位置設定
+Leader 提供了浮水印的精確規格：
+- **高度**：2.03cm
+- **寬度**：6.49cm
+- **水平位置**：19.05cm（從左上角）
+- **垂直位置**：22.35cm（從左上角）
+- **調整**：高度寬度 68%
+
+#### 3. 模板使用策略
+**重要決策**：第一張（封面）和最後一張（封底）直接使用 Canva 模板
+- 模板路徑：
+  - 醫學：`assets/canva-templates/醫學貼文模板.pptx`
+  - 故事：`assets/canva-templates/故事貼文模板 .pptx`
+  - 個人成長：`assets/canva-templates/成長貼文模板 .pptx`
+
+**工作流程**：
+1. 從模板開啟（有 6 張投影片）
+2. 修改第一張的標題和副標題
+3. 刪除中間範例內容（保留封面和封底）
+4. 插入 6 張內容頁
+5. 重新排序：封面 → 內容1-6 → 封底
+
+#### 4. 品牌視覺識別：熊
+**關鍵決策**：所有 AI 生成圖片都以「熊」作為主角
+
+**原因**：
+- 熊 = @momobear_doctor 的品牌識別
+- 熊的形象：可愛、溫暖、專業、有人性
+- 風格：油畫風格下的熊，柔和、藝術化
+- 呈現：醫師熊、思考的熊、工作中的熊等
+
+**注意事項**：
+- ✅ 不要過於卡通或幼稚
+- ✅ 不要過於寫實或恐怖
+- ✅ 保持油畫印象派風格
+
+#### 5. 第一篇貼文：沒有姓名的值班機器
+**主題類型**：個人成長（橘色系）
+
+**AI 圖片 Prompt（最終版）**：
+```
+Oil painting style, warm orange and golden tones, a bear in medical scrubs holding a phone or making a phone call in a hospital corridor, faceless or blurred features, melancholic and introspective atmosphere, impressionist brushstrokes, muted colors, sense of anonymity and loss of identity, soft lighting
+```
+
+**關鍵元素**：
+- 🐻 熊作為主角
+- 📞 打電話（呼應「喂，我是某某樓層的值班醫師...」）
+- 👔 醫師服
+- 🏥 醫院走廊
+- 😶 模糊的五官（失去姓名/身份）
+
+**Caption**：
+> 最近接到學弟妹的會診電話，越來越常聽到這樣的開場：「喂，我是某某樓層的值班醫師...」
+>
+> 不是張醫師、不是李醫師，只是「值班醫師」。
+>
+> 什麼時候開始，我們連名字都不說了？也許是工作壓力讓我們麻木了，也許是害怕被記住、被針對，或是醫療文化告訴我們，職位比人更重要。
+>
+> 當我們失去名字，我們從「人」變成了「功能」，從「張醫師」變成「值班機器」。這是保護機制，還是我們付出的代價？
+>
+> 你不只是一台值班機器。記得說出你的名字，下次打電話時，介紹你自己。在體制中，不失去自己。
+
+**投影片結構**（8 張）：
+1. 封面：「沒有姓名的值班機器」+ 副標題「PART 1」
+2. 「喂，我是某某樓層的值班醫師...」
+3. 不是張醫師、不是李醫師、不是王醫師 → 只是「值班醫師」
+4. 什麼時候開始我們連名字都不說了？
+5. 為什麼會這樣？
+6. 當我們失去名字，我們失去了什麼？
+7. 你不只是一台值班機器（結尾）
+8. 封底（固定模板）
+
+### ✅ 完成事項
+- [x] 建立 `outputs/` 資料夾結構（文章/ + IG貼文/）
+- [x] 創建第一個貼文資料夾：`2025-12-12-IG貼文-個人成長-沒有姓名的值班機器/`
+- [x] 完全重寫 `scripts/generate_ppt.py`：
+  - 從模板開始
+  - 修改封面標題/副標題
+  - 刪除範例內容
+  - 插入 6 張內容頁
+  - 重新排序投影片
+  - 使用精確浮水印位置（19.05cm, 22.35cm, 6.49cm × 2.03cm）
+- [x] 創建 `scripts/generate_content_file.py`：
+  - 自動生成內容文字檔案
+  - 包含 Caption、投影片文字、AI prompt、製作流程
+- [x] 成功生成第一篇貼文的 PPT 和內容檔案
+- [x] 更新 `resources/ai-image-prompts.md`：
+  - 加入「熊作為主角」的重要說明
+  - 更新所有三大主題的 prompt 範本（醫學/故事/成長）
+  - 加入這次貼文的具體範例
+  - 加入打電話元素
+- [x] 創建 `outputs/README.md`：完整說明檔案結構與使用方式
+- [x] 更新主 `README.md`：反映新的檔案結構
+
+### 📝 檔案變更記錄
+
+#### 新增檔案
+- **Outputs 結構**：
+  - `outputs/README.md` - Outputs 資料夾完整說明
+  - `outputs/文章/` - Blog 文章產出資料夾
+  - `outputs/IG貼文/` - IG 貼文產出資料夾
+  - `outputs/IG貼文/2025-12-12-IG貼文-個人成長-沒有姓名的值班機器/` - 第一篇貼文資料夾
+
+- **第一篇貼文產出**：
+  - `沒有姓名的值班機器_草稿.pptx` - 8 張投影片（封面+內容1-6+封底）
+  - `沒有姓名的值班機器_內容.txt` - 完整文字內容與 AI prompt
+
+- **自動化腳本**：
+  - `scripts/generate_ppt.py` - 完全重寫，從模板生成 PPT
+  - `scripts/generate_content_file.py` - 生成內容文字檔案
+
+#### 修改檔案
+- `README.md` - 更新專案文件結構，反映 outputs/ 新架構
+- `resources/ai-image-prompts.md` - 加入「熊」作為主角的指引，更新所有 prompt 範本
+- `shared/design-system.md` - （已存在，未修改）
+- `shared/visual-guidelines.md` - （已存在，未修改）
+
+### 🎯 技術細節
+
+#### PPT 生成流程
+```python
+1. 載入模板（成長貼文模板 .pptx）
+2. 修改第一張的標題和副標題
+3. 刪除中間範例投影片（保留封面和封底）
+4. 在中間插入 6 張內容頁
+5. 重新排序：封面 → 內容1-6 → 封底
+6. 每張投影片添加精確位置的浮水印圖片
+7. 儲存到正確的資料夾結構
+```
+
+#### 浮水印實作
+```python
+def add_watermark(slide):
+    left = Cm(19.05)   # 19.05cm 從左上角
+    top = Cm(22.35)    # 22.35cm 從左上角
+    width = Cm(6.49)   # 6.49cm 寬度
+    height = Cm(2.03)  # 2.03cm 高度
+    slide.shapes.add_picture(WATERMARK_PATH, left, top, width=width, height=height)
+```
+
+#### POST_CONFIG 設定
+```python
+POST_CONFIG = {
+    'date': '2025-12-12',
+    'type': '個人成長',  # 醫學 / 故事 / 個人成長
+    'title': '沒有姓名的值班機器',
+    'subtitle': 'PART 1',  # 副標題（成長主題專用）
+}
+```
+
+### 💡 重要決策與學習
+
+#### 1. 檔案命名規則
+- **資料夾**：`YYYY-MM-DD-IG貼文-類型-標題`
+- **PPT**：`[標題]_草稿.pptx`
+- **文字**：`[標題]_內容.txt`
+- **封面**：`[標題]_封面.png`
+- **完成圖**：`[標題]_01.png ~ _08.png`
+- **統一使用中文**
+
+#### 2. 模板優先策略
+- 不從零開始建立 PPT
+- 從 Canva 模板開始，保持視覺一致性
+- 只修改標題和插入內容，不改封面/封底設計
+
+#### 3. 品牌視覺識別
+- **熊** = @momobear_doctor 的核心識別
+- 所有 AI 圖片都要有熊
+- 油畫風格 + 熊 = 獨特的品牌視覺
+
+#### 4. 打電話元素的加入
+- 從 Leader 反饋中快速調整
+- Prompt 加入「holding a phone or making a phone call」
+- 更貼合貼文主題（接電話時不說名字）
+
+### ⏭️ 待辦事項
+
+#### 立即執行（這篇貼文）
+- [ ] **生成 AI 封面圖**：使用更新後的 prompt（含熊+打電話）
+- [ ] **匯入 Canva**：將 `_草稿.pptx` 匯入
+- [ ] **替換背景**：Slide 1 替換為 AI 圖片 + 橘色遮罩
+- [ ] **匯出圖片**：PNG 1080x1080px，命名為 `_01.png ~ _08.png`
+- [ ] **發布到 IG**：配上 Caption
+
+#### 系統優化
+- [ ] 測試其他兩種模板（醫學、故事）
+- [ ] 驗證浮水印在所有模板上的位置是否正確
+- [ ] 建立更多 AI prompt 範例（含熊的各種場景）
+
+#### 文件完善
+- [ ] 補充 `shared/brand-identity.md`（熊的品牌故事）
+- [ ] 更新 `shared/visual-guidelines.md`（加入熊的設計指引）
+- [ ] 建立 AI 圖片生成的最佳實踐文件
+
+### 🎯 下次重點
+
+1. **完成第一篇貼文發布**：
+   - 生成 AI 封面圖
+   - Canva 製作完成
+   - 發布到 IG
+   - 記錄受眾反應
+
+2. **驗證整個流程**：
+   - 腳本是否順暢？
+   - 有哪些可以優化的地方？
+   - 時間花費多少？
+
+3. **建立第二篇貼文**：
+   - 測試另一個主題（醫學或故事）
+   - 驗證模板切換是否順利
+   - 持續優化流程
+
+### 📊 系統狀態更新
+
+✅ **基礎建設：100% 完成**
+- Agent 系統 ✓
+- CLI Slash Commands ✓
+- Notion 整合 ✓
+- Git 版本控制 ✓
+- **檔案結構標準化 ✓**
+- **PPT 自動生成系統 ✓**
+- **內容文字檔案生成 ✓**
+
+🎨 **品牌視覺系統：90% 完成**
+- 三大主題色系定義 ✓
+- 浮水印精確位置 ✓
+- 模板整合策略 ✓
+- **熊作為品牌主角 ✓**
+- **AI 圖片 prompt 範本 ✓**
+- 字體與排版規範 ✓
+
+📝 **第一篇貼文：80% 完成**
+- 主題選定 ✓
+- Caption 撰寫 ✓
+- 投影片內容 ✓
+- PPT 生成 ✓
+- 內容文字檔案 ✓
+- AI prompt 設計 ✓
+- ⏳ AI 封面圖生成（待執行）
+- ⏳ Canva 製作（待執行）
+- ⏳ 發布到 IG（待執行）
+
+### 📌 重要提醒
+
+#### 使用新的腳本流程
+```bash
+# 生成新貼文時：
+
+# 1. 編輯 POST_CONFIG
+# scripts/generate_ppt.py 和 scripts/generate_content_file.py 頂部
+
+# 2. 執行腳本
+python scripts/generate_ppt.py
+python scripts/generate_content_file.py
+
+# 3. 檢查產出
+# outputs/IG貼文/YYYY-MM-DD-IG貼文-類型-標題/
+```
+
+#### AI 圖片生成記得
+- ✅ 一定要有熊
+- ✅ 符合主題色系（醫學=藍、故事/成長=橘）
+- ✅ 油畫印象派風格
+- ✅ 根據內容客製化場景
+
+#### 浮水印位置已固定
+- 不需要手動調整
+- 腳本會自動加到正確位置
+- 尺寸：6.49cm × 2.03cm
+- 位置：右下角（19.05cm, 22.35cm）
+
+### Git Commit
+```bash
+git add .
+git commit -m "feat: Complete first IG post production system
+
+- Reorganized outputs/ structure (文章/ + IG貼文/)
+- Rewrote generate_ppt.py to use Canva templates
+- Created generate_content_file.py for text content
+- Set precise watermark position (19.05cm, 22.35cm, 6.49×2.03cm)
+- Added 'bear as main character' to all AI prompts
+- Generated first post: 沒有姓名的值班機器
+- Updated AI image prompt guidelines with bear templates
+- Created outputs/README.md for file structure documentation
+- All file names now use Chinese for clarity
+
+First post (80% complete):
+- 8 slides: cover + content 1-6 + back cover
+- Caption written
+- PPT generated from template
+- AI prompt ready (bear + phone call + hospital corridor)
+- Next: generate AI cover image and publish to IG"
+git push origin main
+```
+
+---
+
 ---
 
 ## 📊 專案整體進度追蹤

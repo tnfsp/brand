@@ -4,7 +4,14 @@
       "WebFetch(domain:www.instagram.com)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(mkdir:*)",
+      "Bash(python3:*)",
+      "Bash(pip install:*)",
+      "Bash(python generate_ppt.py:*)",
+      "Bash(python scripts/generate_ppt.py:*)",
+      "Bash(python scripts/generate_content_file.py:*)",
+      "Bash(python -c:*)"
     ]
   }
 }
