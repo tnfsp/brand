@@ -11,7 +11,8 @@
       "Bash(python generate_ppt.py:*)",
       "Bash(python scripts/generate_ppt.py:*)",
       "Bash(python scripts/generate_content_file.py:*)",
-      "Bash(python -c:*)"
+      "Bash(python -c:*)",
+      "Bash(ls:*)"
     ]
   }
 }
