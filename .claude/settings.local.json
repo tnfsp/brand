@@ -12,7 +12,8 @@
       "Bash(python scripts/generate_ppt.py:*)",
       "Bash(python scripts/generate_content_file.py:*)",
       "Bash(python -c:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npm run fetch:murmur:*)"
     ]
   }
 }
