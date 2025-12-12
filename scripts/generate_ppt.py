@@ -59,28 +59,9 @@ def add_watermark(slide):
     else:
         print('Warning: Watermark image not found')
 
-# ==================== 修改第一張（封面）====================
-slide1 = prs.slides[0]
-
-# 找到標題文字框並修改
-for shape in slide1.shapes:
-    if shape.has_text_frame:
-        text = shape.text_frame.text
-        # 根據原有文字判斷是標題還是副標題
-        if len(text) > 0:
-            # 假設較長的是標題
-            if len(text) > 8 or '值班' in text or 'PART' not in text:
-                shape.text_frame.text = POST_CONFIG['title']
-                for paragraph in shape.text_frame.paragraphs:
-                    paragraph.font.name = 'csong'
-                    paragraph.font.color.rgb = BLACK_TEXT
-            elif 'PART' in text or len(text) < 8:
-                shape.text_frame.text = POST_CONFIG['subtitle']
-                for paragraph in shape.text_frame.paragraphs:
-                    paragraph.font.name = 'csong'
-                    paragraph.font.color.rgb = BLACK_TEXT
-
-print('Modified slide 1 (cover)')
+# ==================== 第一張（模板封面）不修改 ====================
+# 重要：第一張封面完全保留模板原樣，不做任何修改
+print('Keeping slide 1 (template cover) unchanged')
 
 # ==================== 刪除模板中間的範例內容 ====================
 # 保留第一張（index 0）和最後一張，刪除中間的
@@ -94,9 +75,57 @@ for idx in reversed(slides_to_delete):
 print(f'Deleted example slides, now has {len(prs.slides)} slides')
 
 # ==================== 準備插入新內容頁 ====================
-# 現在 prs 只有 2 張：第一張（封面）和最後一張（封底）
-# 我們要在第一張後面插入 6 張內容頁
+# 現在 prs 只有 2 張：第一張（模板封面）和最後一張（封底）
+# 我們要在第一張後面插入：
+# 1. 標題頁（原本我以為的封面）
+# 2. 6 張內容頁
 
+# 先插入標題頁（第 2 張）
+title_slide = prs.slides.add_slide(blank_slide_layout)
+
+# 添加橘色背景
+bg_title = title_slide.shapes.add_shape(1, 0, 0, prs.slide_width, prs.slide_height)
+bg_title.fill.solid()
+bg_title.fill.fore_color.rgb = ORANGE
+
+# 標題框（黑邊 + 米黃色底）
+title_box = title_slide.shapes.add_textbox(Inches(1.5), Inches(4), Inches(7), Inches(1.5))
+text_frame = title_box.text_frame
+text_frame.text = POST_CONFIG['title']
+text_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
+text_frame.paragraphs[0].font.size = Pt(60)
+text_frame.paragraphs[0].font.bold = True
+text_frame.paragraphs[0].font.name = 'csong'
+text_frame.paragraphs[0].font.color.rgb = BLACK_TEXT
+title_box.fill.solid()
+title_box.fill.fore_color.rgb = BEIGE_BG
+title_box.line.color.rgb = BLACK_TEXT
+title_box.line.width = Pt(3)
+
+# 副標題（成長主題專用）
+if POST_CONFIG.get('subtitle'):
+    subtitle = title_slide.shapes.add_textbox(Inches(2.5), Inches(5.7), Inches(5), Inches(0.6))
+    sub_frame = subtitle.text_frame
+    sub_frame.text = POST_CONFIG['subtitle']
+    sub_frame.paragraphs[0].alignment = PP_ALIGN.RIGHT
+    sub_frame.paragraphs[0].font.size = Pt(32)
+    sub_frame.paragraphs[0].font.name = 'csong'
+    sub_frame.paragraphs[0].font.color.rgb = BLACK_TEXT
+
+# 添加浮水印
+add_watermark(title_slide)
+
+# 註記（提醒替換 AI 圖片）
+note = title_slide.shapes.add_textbox(Inches(1), Inches(1), Inches(8), Inches(2))
+note_frame = note.text_frame
+note_frame.text = '[請替換此投影片背景為 AI 生成的圖片]\n然後加上橘色半透明遮罩（#CA6702, 70-75% 透明度）'
+note_frame.paragraphs[0].font.size = Pt(20)
+note_frame.paragraphs[0].font.name = 'csong'
+note_frame.paragraphs[0].font.color.rgb = WHITE
+
+print('Added slide 2 (title page)')
+
+# 接著插入 6 張內容頁
 content_slides = [
     {
         'text': '「喂，我是某某樓層的值班醫師...」',
@@ -220,8 +249,8 @@ for i, content in enumerate(content_slides, start=2):
 print(f'Total slides after adding content: {len(prs.slides)}')
 
 # ==================== 重新排序投影片 ====================
-# 現在順序是：封面、封底、內容1-6
-# 需要改成：封面、內容1-6、封底
+# 現在順序是：模板封面、封底、標題頁、內容1-6
+# 需要改成：模板封面、標題頁、內容1-6、封底
 
 # 移動封底（index 1）到最後
 slides_list = list(prs.slides._sldIdLst)
@@ -231,7 +260,7 @@ slides_list.append(back_cover)   # 添加到最後
 # 重新構建投影片列表
 prs.slides._sldIdLst[:] = slides_list
 
-print('Reordered slides: Cover -> Content 1-6 -> Back cover')
+print('Reordered slides: Template cover -> Title page -> Content 1-6 -> Back cover')
 
 # ==================== 最後一張（封底）已經存在，不需要修改 ====================
 
