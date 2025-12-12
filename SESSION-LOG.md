@@ -110,25 +110,186 @@ wilsonchao-brand/
 
 ---
 
-## Session #002 - [日期待填]
+## Session #002 - 2025-12-12
 
 ### 📌 本次目標
-[下次 Session 開始時填寫]
+建立完整的 AI Agent 系統架構，並初始化 Git repository
 
 ### 💬 討論內容
-[記錄討論]
+
+#### 1. Agent 架構重新設計
+經過討論，決定採用三層級 Agent 架構：
+
+**Level 0: Leader（Wilson）**
+- 最終決策權、品牌把關
+
+**Level 1: 策略與協調層**
+- **Social Manager**：品牌策略顧問，討論整體方向
+- **Project Manager**：專案協調者，指揮執行層 Agents
+
+**Level 2: 執行層 Agents**
+- **Content-Framing Agent**：內容框架與主題發想
+- **IG Agents**：IG-Ideation, IG-Copywriting, IG-Visual, Content-Creation
+- **Blog Agents**：Blog-Ideation, Blog-Writing, Blog-Editing（未來建立）
+- **其他支援 Agents**：Brand-Strategy, Reflection（未來建立）
+
+#### 2. 關鍵決策確認
+- **目標優先順序**：D (建立系統) > B (穩定產出) > C (內容品質) > A (降低門檻)
+- **產出目標**：IG 和 Blog 各一個月至少 1 篇
+- **時間投入**：每週 5-10 小時
+- **渠道優先級**：IG > Blog
+- **內容三大支柱**：醫學（藍色）、故事（橘色A）、個人成長（橘色B）
+- **Agent 分離方式**：Social Manager 與 Project Manager 獨立對話（使用 Claude Projects）
+- **本對話定位**：作為 Social Manager（策略討論）
+
+#### 3. Notion CMS 整合
+- 確認使用 Notion 作為 Blog CMS
+- 已有 Notion API credentials（已記錄到文件，但實際 credentials 不納入版本控制）
+- Blog Database 與 Projects Database 已設定
+
+#### 4. Session Log 機制建立
+- 在 CLAUDE.md 中加入 CLI 協作規範
+- 每次使用 CLI 都要記錄變更與待辦事項
+- 方便團隊成員接力完成專案
 
 ### ✅ 完成事項
-[記錄完成的任務]
+- [x] 設計三層級 Agent 架構
+- [x] 建立專案文件結構（資料夾）
+- [x] 撰寫 Social Manager agent-prompt.md
+- [x] 撰寫 Project Manager agent-prompt.md
+- [x] 建立品牌核心文件（brand-identity.md, content-pillars.md, visual-guidelines.md）
+- [x] 建立內容點子庫模板（ideas-pool.md）
+- [x] 撰寫 Content-Framing Agent prompt
+- [x] 撰寫完整 IG Agents 系列 prompts：
+  - IG-Ideation Agent
+  - IG-Copywriting Agent
+  - IG-Visual Agent
+  - Content-Creation Agent
+- [x] 建立 Notion 整合說明文件（notion-integration.md）
+- [x] 更新 README.md（專案總覽）
+- [x] 更新 CLAUDE.md（加入 Session Log 機制）
+- [x] 建立 .gitignore（保護敏感資訊）
+- [x] 初始化 Git repository
+- [x] Push 到 GitHub (https://github.com/tnfsp/brand)
 
 ### 📝 檔案變更記錄
-[記錄檔案變更]
+
+#### 新增檔案
+- `README.md` - 專案總覽與 Agent 架構說明
+- `.gitignore` - Git 版本控制排除規則
+- **Agents（策略與協調層）**：
+  - `agents/social-manager/agent-prompt.md` - Social Manager 角色定義
+  - `agents/project-manager/agent-prompt.md` - Project Manager 角色定義
+- **Agents（執行層）**：
+  - `agents/content-framing/agent-prompt.md` - Content-Framing Agent
+  - `agents/ig-agents/ig-ideation-agent.md` - IG 三圖架構設計
+  - `agents/ig-agents/ig-copywriting-agent.md` - IG 文案撰寫
+  - `agents/ig-agents/ig-visual-agent.md` - IG 視覺設計指示
+  - `agents/ig-agents/content-creation-agent.md` - IG 內容整合
+- **品牌核心文件**：
+  - `shared/brand-identity.md` - 品牌識別（待補充 Leader 資訊）
+  - `shared/content-pillars.md` - 三大內容支柱定義
+  - `shared/visual-guidelines.md` - IG 視覺規範（待補充 Canva 模板資訊）
+- **內容中心**：
+  - `content-hub/ideas-pool.md` - 內容點子庫
+- **資源文件**：
+  - `resources/notion-integration.md` - Notion API 整合說明
+
+#### 修改檔案
+- `CLAUDE.md` - 加入 CLI 協作規範與 Session Log 機制說明
 
 ### ⏭️ 待辦事項
-[更新待辦清單]
+
+#### 高優先級（需要 Leader 補充）
+- [ ] **補充 brand-identity.md**：
+  - 品牌定位細節（專業領域、獨特性、目標受眾）
+  - 品牌價值觀（3-5 個核心信念）
+  - 品牌故事（初衷、願景）
+  - 當前品牌階段（可辨識/可信任/可認同）
+- [ ] **補充 visual-guidelines.md**：
+  - Canva 模板截圖或連結
+  - 三個主題的具體色碼
+  - 橘色 A 與橘色 B 的視覺差異說明
+  - 字體與排版細節
+- [ ] **補充 content-pillars.md**：
+  - 三大支柱的理想比例
+  - 各支柱的具體主題範例
+- [ ] **補充 ideas-pool.md**：
+  - 初始內容點子（各支柱至少 3-5 個點子）
+
+#### 中優先級（系統建立）
+- [ ] 測試 Agent 系統（從 IG 貼文開始）
+- [ ] 建立第一個實際的 IG 貼文（驗證流程）
+- [ ] 建立 Blog Agents（Phase 2）
+- [ ] 建立支援 Agents（Brand-Strategy, Reflection）
+
+#### 低優先級（長期優化）
+- [ ] 整合 Podcast 內容流程
+- [ ] 建立 Analytics Agent
+- [ ] 建立 Community Agent
 
 ### 🎯 下次重點
-[標註下次要處理的事項]
+
+1. **與 Social Manager 對話（本對話）**：
+   - 補充品牌核心文件的待填資訊
+   - 討論首次內容生產的策略（選什麼主題？）
+   - 確認視覺規範細節
+
+2. **與 Project Manager 對話（另開新對話）**：
+   - 根據 Social Manager 的策略指示
+   - 開始實際生產第一個 IG 貼文
+   - 測試整個 Agent 協作流程
+
+3. **使用 Claude Projects**：
+   - 設定 Project Knowledge（包含整個專案資料夾）
+   - 為 Social Manager 和 Project Manager 分別建立對話
+   - 使用對應的 agent-prompt.md 作為 Custom Instructions
+
+### 💡 系統架構已完成
+✅ **基礎建設完成度：90%**
+- Agent 角色定義清楚
+- 工作流程設計完整
+- 文件結構建立完成
+- Git 版本控制啟用
+- Session Log 機制建立
+
+🔄 **待補充：品牌具體資訊（需要 Leader 提供）**
+- 品牌定位細節
+- 視覺規範具體參數
+- 內容點子初始庫
+
+### 📌 重要提醒
+
+#### 如何使用這個系統
+1. **策略討論**：與 Social Manager 對話（使用 `agents/social-manager/agent-prompt.md`）
+2. **執行任務**：與 Project Manager 對話（使用 `agents/project-manager/agent-prompt.md`）
+3. **每次 Session**：記得更新 SESSION-LOG.md 並 git push
+
+#### Git 工作流程
+```bash
+# 開始工作前
+git pull
+
+# 結束工作時
+git add .
+git commit -m "descriptive message"
+git push origin main
+```
+
+#### 本次 Git Commit
+```
+git commit -m "Initial commit: Brand management system setup
+
+- Established multi-tier AI Agent architecture
+- Created brand core documents (identity, content pillars, visual guidelines)
+- Built IG Agents system (Ideation, Copywriting, Visual, Content-Creation)
+- Set up Content-Framing Agent
+- Added Notion CMS integration documentation
+- Implemented Session Log mechanism for CLI collaboration
+- Added .gitignore to protect sensitive information"
+```
+
+---
 
 ---
 
